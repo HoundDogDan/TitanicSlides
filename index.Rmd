@@ -22,7 +22,12 @@ My shiny app's purpose is to allow you to explore a `predictive model` bulit fro
 - Can you tell which variables have the greatest importance?
 
 
+
 For fun, enter your own information to see if you would survive. 
+
+GitHub Repository http://HoundDogDan.github.io/TitanicSlides
+
+ShinyApp https://hounddogdan.shinyapps.io/DataApps
 
 --- .class #id 
 ## How to use the App
@@ -45,7 +50,7 @@ The Shiny App performs better this way because the randomForrest algorithm can t
 --- .class #id 
 ## Answers
 Here is the graph depicting the importance of variables:
-```{r, fig.height=4, fig.width=5}
+```{r, fig.height=4, fig.width=6}
 modrf <- readRDS("E:/DataApps/data/modrf_titanic5.rds")
 varImpPlot(modrf, main="Variable Importance")
 ```

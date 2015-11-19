@@ -22,7 +22,12 @@ My shiny app's purpose is to allow you to explore a `predictive model` bulit fro
 - Can you tell which variables have the greatest importance?
 
 
+
 For fun, enter your own information to see if you would survive. 
+
+GitHub Repository http://HoundDogDan.github.io/TitanicSlides
+
+ShinyApp https://hounddogdan.shinyapps.io/DataApps
 
 --- .class #id 
 ## How to use the App
