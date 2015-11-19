@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Titanic Slidify</title>
+  <title>Titanic Prediction</title>
   <meta charset="utf-8">
-  <meta name="description" content="Titanic Slidify">
-  <meta name="author" content="Danny">
+  <meta name="description" content="Titanic Prediction">
+  <meta name="author" content="Danny S.">
   <meta name="generator" content="slidify" />
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta http-equiv="X-UA-Compatible" content="chrome=1">
@@ -12,7 +12,7 @@
   <link rel="stylesheet" href="libraries/frameworks/io2012/css/phone.css" 
     media="only screen and (max-device-width: 480px)" >
   <link rel="stylesheet" href="libraries/frameworks/io2012/css/slidify.css" >
-  <link rel="stylesheet" href="libraries/highlighters/highlight.js/css/tomorrow.css" />
+  <link rel="stylesheet" href="libraries/highlighters/highlight.js/css/zenburn.css" />
   <base target="_blank"> <!-- This amazingness opens all links in a new tab. -->  <link rel=stylesheet href="./assets/css/ribbons.css"></link>
 
   
@@ -32,9 +32,9 @@
     <!-- LOGO SLIDE -->
         <slide class="title-slide segue nobackground">
   <hgroup class="auto-fadein">
-    <h1>Titanic Slidify</h1>
-    <h2>Data Science Coursera Course</h2>
-    <p>Danny<br/></p>
+    <h1>Titanic Prediction</h1>
+    <h2>Would you survive the Titanic?</h2>
+    <p>Danny S.<br/></p>
   </hgroup>
   <article></article>  
 </slide>
@@ -43,25 +43,36 @@
     <!-- SLIDES -->
     <slide class="" id="slide-1" style="background:;">
   <hgroup>
-    <h2>Read-And-Delete</h2>
+    <h2>The Titanic Prediciton Shiny App</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>My shiny app&#39;s purpose is to allow you to explore a <code>predictive model</code> bulit from the Titanic data set. </p>
+
+<p>When reviewing the model, try to answer these questions:</p>
+
+<ul>
+<li>Can you tell where the decision trees split? </li>
+<li>Can you tell which variables have the greatest importance?</li>
+</ul>
+
+<p>For fun, enter your own information to see if you would survive. </p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="class" id="id" style="background:;">
+  <hgroup>
+    <h2>How to use the App</h2>
   </hgroup>
   <article data-timings="">
     <ol>
-<li>Edit YAML front matter</li>
-<li>Write using R Markdown</li>
-<li>Use an empty line followed by three dashes to separate slides!</li>
+<li>Choose and set values </li>
+<li>Click the Submit button</li>
+<li>Review the prediction</li>
 </ol>
 
-  </article>
-  <!-- Presenter Notes -->
-</slide>
-
-<slide class="class" id="id" style="background:;">
-  <hgroup>
-    <h2>Slide 2</h2>
-  </hgroup>
-  <article data-timings="">
-    <p>###The Titanic Prediciton</p>
+<p><img src="ShinyApp_4.png" alt="width"></p>
 
   </article>
   <!-- Presenter Notes -->
@@ -69,10 +80,14 @@
 
 <slide class="class" id="id" style="background:;">
   <hgroup>
-    <h2>Slide 3</h2>
+    <h2>Why the App works</h2>
   </hgroup>
   <article data-timings="">
-    <p>###Some final 3 thoughts</p>
+    <p>The prediction model was built on the Titantic dataset using basic features and a random forrest algorithm. The outcome of the intense calculations are then saved in an R data set. This is done outside of the ShinyApp.  The ShinyApp loads the saved predicted model. The prediction algorithm is run against that copy of the model.</p>
+
+<p>The input data from step one is collected and transormed upon submission to a data.frame and then predicted against the model.</p>
+
+<p>The Shiny App performs better this way because the randomForrest algorithm can take a long time (and many resources) to build in real time. </p>
 
   </article>
   <!-- Presenter Notes -->
@@ -80,21 +95,16 @@
 
 <slide class="class" id="id" style="background:;">
   <hgroup>
-    <h2>Slide 4</h2>
+    <h2>Answers</h2>
   </hgroup>
   <article data-timings="">
-    <p>###Some final 4 thoughts</p>
+    <p>Here is the graph depicting the importance of variables:</p>
 
-  </article>
-  <!-- Presenter Notes -->
-</slide>
+<pre><code class="r">modrf &lt;- readRDS(&quot;E:/DataApps/data/modrf_titanic5.rds&quot;)
+varImpPlot(modrf, main=&quot;Variable Importance&quot;)
+</code></pre>
 
-<slide class="class" id="id" style="background:;">
-  <hgroup>
-    <h2>Slide 5</h2>
-  </hgroup>
-  <article data-timings="">
-    <p>###Some final 5 thoughts</p>
+<p><img src="assets/fig/unnamed-chunk-1-1.png" alt="plot of chunk unnamed-chunk-1"> </p>
 
   </article>
   <!-- Presenter Notes -->
@@ -106,32 +116,26 @@
     <ul>
       <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=1 title='Read-And-Delete'>
+        data-slide=1 title='The Titanic Prediciton Shiny App'>
          1
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=2 title='Slide 2'>
+        data-slide=2 title='How to use the App'>
          2
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=3 title='Slide 3'>
+        data-slide=3 title='Why the App works'>
          3
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=4 title='Slide 4'>
+        data-slide=4 title='Answers'>
          4
-      </a>
-    </li>
-    <li>
-      <a href="#" target="_self" rel='tooltip' 
-        data-slide=5 title='Slide 5'>
-         5
       </a>
     </li>
   </ul>

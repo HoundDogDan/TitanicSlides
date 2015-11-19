@@ -1,36 +1,52 @@
 ---
-title       : Titanic Slidify
-subtitle    : Data Science Coursera Course
-author      : Danny
+title       : Titanic Prediction 
+subtitle    : Would you survive the Titanic?
+author      : Danny S.
 job         : 
-framework   : io2012        # {io2012, html5slides, shower, dzslides, ...}
+framework   : io2012       # {io2012, html5slides, shower, dzslides, ...}
 highlighter : highlight.js  # {highlight.js, prettify, highlight}
-hitheme     : tomorrow      # 
+hitheme     : zenburn      # 
 widgets     : []            # {mathjax, quiz, bootstrap}
 mode        : selfcontained # {standalone, draft}
 knit        : slidify::knit2slides
+
 ---
 
-## Read-And-Delete
+## The Titanic Prediciton Shiny App
 
-1. Edit YAML front matter
-2. Write using R Markdown
-3. Use an empty line followed by three dashes to separate slides!
+My shiny app's purpose is to allow you to explore a `predictive model` bulit from the Titanic data set. 
 
---- .class #id 
-## Slide 2
-###The Titanic Prediciton
+ When reviewing the model, try to answer these questions:
 
---- .class #id 
-## Slide 3
-###Some final 3 thoughts
+- Can you tell where the decision trees split? 
+- Can you tell which variables have the greatest importance?
+
+
+For fun, enter your own information to see if you would survive. 
 
 --- .class #id 
-## Slide 4
-###Some final 4 thoughts
+## How to use the App
+1. Choose and set values 
+2. Click the Submit button
+3. Review the prediction
+
+![width](ShinyApp_4.png)
 
 --- .class #id 
-## Slide 5
-###Some final 5 thoughts
+## Why the App works
 
+The prediction model was built on the Titantic dataset using basic features and a random forrest algorithm. The outcome of the intense calculations are then saved in an R data set. This is done outside of the ShinyApp.  The ShinyApp loads the saved predicted model. The prediction algorithm is run against that copy of the model.
+
+The input data from step one is collected and transormed upon submission to a data.frame and then predicted against the model.
+
+The Shiny App performs better this way because the randomForrest algorithm can take a long time (and many resources) to build in real time. 
+
+
+--- .class #id 
+## Answers
+Here is the graph depicting the importance of variables:
+```{r, fig.height=4, fig.width=5}
+modrf <- readRDS("E:/DataApps/data/modrf_titanic5.rds")
+varImpPlot(modrf, main="Variable Importance")
+```
 
